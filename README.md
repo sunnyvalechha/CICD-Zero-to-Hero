@@ -52,3 +52,12 @@ Install git:
 * cd /root/maven-project/springboot-webapplication
 * mvn package (build package)
 * cd /root/maven-project/springboot-webapplication/target (see the type of file .war .jar)
+
+# SonarQube
+
+* Code quality of the build can be checked by the Sonarqube.
+* SonarQube is a self-managed, automatic code review tool that systematically helps you deliver Clean Code. SonarQube integrates into your existing workflow and detects issues in your code to help you perform continuous code inspections of your projects.
+* Sonar works on port number 9000
+
+![image](https://github.com/sunnyvalechha/CICD-Zero-to-Hero/assets/59471885/656f338a-a294-45db-a94b-626d2e57dfb5)
+
