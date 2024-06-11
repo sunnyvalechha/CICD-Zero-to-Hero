@@ -31,27 +31,35 @@
 
 **Practical for Maven**
 
-Launch aws instance with t2.medium (amazon 5.10 kernel)
+1. Launch aws instance with t2.medium (amazon 5.10 kernel)
 
-* Install java 11 for amazon linux:
-* sudo yum install java-11-amazon-corretto-headless -y
-* java --version
+2. Install java 11 for amazon linux:
+	URL: https://docs.aws.amazon.com/corretto/latest/corretto-11-ug/amazon-linux-install.html
 
-Install maven: 
-* https://downloads.apache.org/maven/
-* cd /optwget https://downloads.apache.org/maven/maven-3/3.8.8/binaries/apache-maven-3.8.8-bin.tar.gz
-* tar xvf a
-* pache-maven-3.8.8-bin.tar.gz
-* export PATH=$PATH:/opt/apache-maven-3.8.8/bin
-* mvn --version
+3. sudo yum install java-11-amazon-corretto-headless -y
+4. java --version
 
-Install git:
-* yum install git -y
-* git clone https://github.com/Shikhar82/springboot-webapplication.git
+5. Install maven: 
+	https://downloads.apache.org/maven/
+	cd /opt
+	sudo wget https://downloads.apache.org/maven/maven-3/3.8.8/binaries/apache-maven-3.8.8-bin.tar.gz
+	sudo tar xvf apache-maven-3.8.8-bin.tar.gz
+	export PATH=$PATH:/opt/apache-maven-3.8.8/bin
+	echo $PATH
+	sudo yum install maven -y
+	mvn --version
 
-* cd /root/maven-project/springboot-webapplication
-* mvn package (build package)
-* cd /root/maven-project/springboot-webapplication/target (see the type of file .war .jar)
+6. Install git:
+	mkdir maven-project/
+	cd maven-project/
+	sudo yum install git -y
+	git clone https://github.com/Shikhar82/springboot-webapplication.git
+	cd /root/maven-project/springboot-webapplication
+	mvn package (build package)
+	cd /root/maven-project/springboot-webapplication/target (see the type of file .war .jar)
+
+
+
 
 # SonarQube
 
