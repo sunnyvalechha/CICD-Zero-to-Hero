@@ -76,38 +76,39 @@
 sudo apt install openjdk-11-jre-headless -y
 sudo apt install openjdk-11-jdk-headless -y
 
-Sonar verson 9.3
+3. Open port 9000 in Sec group.
 
+4. Open Website > Downloads > Copy link (click here)
+   cd /opt
 
-Open port 9000 in Sec group.
-
-Open Website > Downloads > Copy link (click here)
-cd /opt
-
-wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-10.5.1.90531.zip?_gl=1*1hx7cy0*_gcl_au*MTc2NzUwMTUzMi4xNzE3OTI0MjU4*_ga*NjM2MzkzOC4xNzE3OTI0MjU1*_ga_9JZ0GZ5TC6*MTcxODA4NzUwMS4zLjEuMTcxODA4Nzg5MC42MC4wLjA.
+wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-8.9.10.61524.zip
 
 apt install unzip -y
 
-unzip https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-10.5.1.90531.zip?_gl=1*1hx7cy0*_gcl_au*MTc2NzUwMTUzMi4xNzE3OTI0MjU4*_ga*NjM2MzkzOC4xNzE3OTI0MjU1*_ga_9JZ0GZ5TC6*MTcxODA4NzUwMS4zLjEuMTcxODA4Nzg5MC42MC4wLjA.
+unzip sonarqube-8.9.10.61524.zip
 
-Note: Go back to regular user like ubuntu, it is not recomended to user root user in sonarqube beacuse in backend sonarqube use elastic search and it is not recomended to use ES with root user.
+Note: Go back to regular user like ubuntu or add own user, it is not recomended to user root user in sonarqube beacuse in backend sonarqube use elastic search and it is not recomended to use ES with root user.
 
-/opt/sonarqube-10.5.1.90531/bin/linux-x86-64
-sh sonar.sh
+useradd sonar1
+passwd sonar1
 
-Note: If get an error that we are running is as root and script not ran.
+mv sonarqube-8.9.10.61524.zip sonar
 
-vim sonar.sh
-RUN_AS_USER=ubuntu
+chown -R sonar: sonar
 
-sh sonar.sh start (If again get failed, change ownership of some files)
+vim /opt/sonar/bin/linux-x86-64/sonar.sh
+RUN_AS_USER=sonar1
 
-cd /opt
-sudo apt install acl -y
-getfacl sonarqube
-chown ubuntu: sonarqube/ -R
-
+sh sonar.sh start
 sh sonar.sh status
+
+Google: PublicIP:9000
+
+Username/Pass: admin
+
+
+
+
 
 Google: PublicIP:9000
 
